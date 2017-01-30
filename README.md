@@ -25,18 +25,26 @@ Premise: you know programming but know no (or only a little of) Python.
 
 * Closures
 
+## Exceptions
+
 ## Classes
 
 * Inheritance
 * Magic methods
 
+## List/Dict/Set comprehensions
+
 ## Generators
 
 ## Itertools and more itertools
 
+## Context managers
+
 ## Static analyzers, coverage
 
 ## Debugging
+
+## Logging
 
 ## WSGI, Flask
 
