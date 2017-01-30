@@ -14,6 +14,12 @@ Premise: you know programming but know no (or only a little of) Python.
 
 ## Ordered dicts, frozensets, named touple, counter
 
+## Generators
+
+## Itertools and more itertools
+
+## Static analyzers, coverage
+
 ## WSGI, Flask
 
 ## Podcasts
