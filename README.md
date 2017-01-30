@@ -14,6 +14,8 @@ Premise: you know programming but know no (or only a little of) Python.
 
 ## Ordered dicts, frozensets, named touple, counter
 
+## WSGI, Flask
+
 ## Podcasts
 
 * [Talk Python to Me](https://talkpython.fm/)
