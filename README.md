@@ -70,9 +70,54 @@ htmlcov/
 
 ## Numbers, strings, lists, tuples, dicts, sets
 
+```python
+1234
+0o777
+0b101
+10**123
+10/3
+10//3
+```
+
+```python
+'foo\tbar'
+"foo\x09bar"
+"""foo"""
+'''foo'''
+r'foo\tbar'
+'foo%d: %.2f (%r)' % (1, 2, 3)
+'foo{0}'.format(1)
+b'foo'.decode('utf-8')
+```
+
+```python
+[]
+[1, "abc", 2]
+[1, "abc", 2] + [3]
+list((1, 2, 3))
+(1, 2)
+(1,)
+```
+
+```python
+{1: 2, "foo": "bar"}
+{1, 2, 3.1415}
+```
+
 ## Comments
 
+```python
+# this is a comment
+'''
+This is a multi-line comment - almost
+'''
+```
+
 ## Ordered dicts, frozensets, named touple, counter
+
+## Control structures
+
+## Modules
 
 ## Testing, TDD
 
