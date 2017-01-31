@@ -8,6 +8,9 @@ Premise: you know programming but know no (or only a little of) Python.
 
 - Python: a slow, statically typed (but checked at runtime) scripting language.
 - Sorry for choosing it, here are some steps to make it less painful
+- YMHH (You Might Have Heard):
+  - whitespace sensitive
+  - slow because of the GIL
 
 ## Virtual environments, packages
 
@@ -49,6 +52,8 @@ pip list --outdated --format=columns
 
 ## Function, decorators
 
+* Named parameters
+* "varargs"
 * Closures
 
 ## Mocking
@@ -102,6 +107,12 @@ def hello():
 if __name__ == "__main__":
     app.run(debug=True)
 ```
+
+## Some well-known modules:
+
+* [requests](http://docs.python-requests.org/en/master/)
+* [numpy](http://www.numpy.org/) - also [Intel Distribution for Python](https://software.intel.com/en-us/intel-distribution-for-python)
+* ...
 
 ## Podcasts
 
