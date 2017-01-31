@@ -17,8 +17,11 @@ Premise: you know programming but know no (or only a little of) Python.
 ```bash
 mkdir python-quickstart
 cd python-quickstart
-pyvenv env
+pyvenv env # Not relocable !!!
 source env/bin/activate
+# our just
+./env/bin/python
+./env/bin/pip
 ```
 
 Packages are pulled from [PyPi](https://pypi.python.org/pypi/pudb) (not to be confused with [PyPy](http://pypy.org/) an alternative to CPython)
@@ -59,7 +62,14 @@ htmlcov/
 ...
 ```
 
+* Let's talk about native packages. Some strategies:
+  * Hope that the packager included wheels
+  * Install from package manager and _afterwards_ do `pyvenv --system-site-packages env`
+  * Have a complete build-chain ready (`build-essential`, `python3-dev`, `libpq-dev`, ...)
+
 ## Numbers, strings, lists, tuples, dicts, sets
+
+## Comments
 
 ## Ordered dicts, frozensets, named touple, counter
 
@@ -128,6 +138,7 @@ if __name__ == "__main__":
 
 * [requests](http://docs.python-requests.org/en/master/)
 * [numpy](http://www.numpy.org/) - also [Intel Distribution for Python](https://software.intel.com/en-us/intel-distribution-for-python)
+* [youtube-dl](https://pypi.python.org/pypi/youtube_dl)
 * ...
 
 ## Podcasts
@@ -144,5 +155,7 @@ if __name__ == "__main__":
 * Code formatting guidelines (style guides):
   * PEP8: https://www.python.org/dev/peps/pep-0008/
   * Google Style Guide: https://google.github.io/styleguide/pyguide.html
+* `from __future__ import ...` - see the [\__future\__ module](https://docs.python.org/3.6/library/__future__.html)
+* `# -*- coding: <encoding-name> -*-`
 
 # Good luck!
