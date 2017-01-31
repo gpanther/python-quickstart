@@ -139,6 +139,8 @@ if __name__ == "__main__":
 * [requests](http://docs.python-requests.org/en/master/)
 * [numpy](http://www.numpy.org/) - also [Intel Distribution for Python](https://software.intel.com/en-us/intel-distribution-for-python)
 * [youtube-dl](https://pypi.python.org/pypi/youtube_dl)
+* cProfile
+* [objgraph](https://pypi.python.org/pypi/objgraph)
 * ...
 
 ## Podcasts
