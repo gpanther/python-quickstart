@@ -70,6 +70,7 @@ htmlcov/
 * Named parameters
 * "varargs"
 * Closures
+* Lambdas / anonymous functions
 
 ## Mocking
 
