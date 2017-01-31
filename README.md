@@ -12,7 +12,33 @@ Premise: you know programming but know no (or only a little of) Python.
 ## Virtual environments, packages
 
 ```bash
+mkdir python-quickstart
+cd python-quickstart
+pyvenv env
+source env/bin/activate
+```
 
+Packages are pulled from [PyPi](https://pypi.python.org/pypi/pudb) (not to be confused with [PyPy](http://pypy.org/) an alternative to CPython)
+
+```
+pip install pudb
+pip install pudb==2016.2
+pip install pudb>=2016.0
+```
+
+```
+# requirements.txt
+requests==2.13.0
+# requirements_dev.txt
+-r requirements.txt
+pudb==2016.2
+# command line:
+pip install -r requirements_dev.txt
+```
+
+```
+pip freeze > requirements_frozen.txt
+pip list --outdated --format=columns
 ```
 
 ## Numbers, strings, lists, tuples, dicts, sets
