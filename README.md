@@ -40,6 +40,11 @@ Premise: you know programming but know no (or only a little of) Python.
 
 ## Context managers
 
+## Serialization
+
+* JuJ: Just Use Json
+* Pickle and YAML are both security risks!
+
 ## Static analyzers, coverage
 
 ## Debugging
