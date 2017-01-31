@@ -45,11 +45,13 @@ pip list --outdated --format=columns
 
 ## Ordered dicts, frozensets, named touple, counter
 
-## Testing, TDD, mocking
+## Testing, TDD
 
 ## Function, decorators
 
 * Closures
+
+## Mocking
 
 ## Exceptions
 
@@ -78,6 +80,28 @@ pip list --outdated --format=columns
 ## Logging
 
 ## WSGI, Flask
+
+- WSGI: web standard gateway interface
+- "WSGI servers": uWSGI, mod_wsgi, etc
+- [Flask](http://flask.pocoo.org/): very basic web framework.
+- Uses thread-local variables like `flask.request`
+- Has an integrated debugger
+- Watch out for security! Doesn't even provide CSRF protection by default: http://flask.pocoo.org/snippets/3/
+- Probably should be checked for https://www.owasp.org/index.php/Top_10_2013-Top_10
+
+```python
+import flask
+app = flask.Flask(__name__)
+
+
+@app.route("/")
+def hello():
+    return 1 + "Hello World!"
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
 
 ## Podcasts
 
