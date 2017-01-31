@@ -38,6 +38,7 @@ requests==2.13.0
 # requirements_dev.txt
 -r requirements.txt
 pudb==2016.2
+# can also contain URLs
 # command line:
 pip install -r requirements_dev.txt
 ```
@@ -119,6 +120,7 @@ htmlcov/
 - Has an integrated debugger
 - Watch out for security! Doesn't even provide CSRF protection by default: http://flask.pocoo.org/snippets/3/
 - Probably should be checked for https://www.owasp.org/index.php/Top_10_2013-Top_10
+- For Jinja2: make sure that autoescape is enabled
 
 ```python
 import flask
