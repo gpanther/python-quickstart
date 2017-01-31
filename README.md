@@ -402,6 +402,9 @@ print(test(1, 2, 3))
 
 ## Generators
 
+* [Generator Tricks](http://www.dabeaz.com/generators/index.html)
+* [A Curious Course on Coroutines and Concurrency](http://dabeaz.com/coroutines/)
+
 ## Itertools and more itertools
 
 ## Context managers
@@ -459,6 +462,7 @@ if __name__ == "__main__":
 
 ## Other tidbits:
 
+* [PyVideo.org](http://pyvideo.org/)
 * Python 3.5 type hints
 * Good editors: PyCharm, PyDev
 * [/r/Python](https://www.reddit.com/r/Python/) and [/r/PythonTips](https://www.reddit.com/r/pythontips/)
