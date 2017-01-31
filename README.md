@@ -24,6 +24,8 @@ source env/bin/activate
 ./env/bin/pip
 ```
 
+`print("Hello world!")`
+
 Packages are pulled from [PyPi](https://pypi.python.org/pypi/pudb) (not to be confused with [PyPy](http://pypy.org/) an alternative to CPython)
 
 ```
@@ -68,7 +70,12 @@ htmlcov/
   * Install from package manager and _afterwards_ do `pyvenv --system-site-packages env`
   * Have a complete build-chain ready (`build-essential`, `python3-dev`, `libpq-dev`, ...)
 
-## Numbers, strings, lists, tuples, dicts, sets
+## Booleans, numbers, strings, lists, tuples, dicts, sets, range
+
+```python
+True
+False
+```
 
 ```python
 1234
@@ -77,6 +84,14 @@ htmlcov/
 10**123
 10/3
 10//3
+```
+
+```python
+type(1234)
+str(1234)
+repr(1234)
+hash(1234)
+id(1234)
 ```
 
 ```python
@@ -95,14 +110,41 @@ b'foo'.decode('utf-8')
 [1, "abc", 2]
 [1, "abc", 2] + [3]
 list((1, 2, 3))
+l = [1, "abc", 2]
+l[0]
+len(l)
+l[-1]
+l[::2]
+l[::-1]
+del l[1]
 (1, 2)
 (1,)
+(1, 2)[::-1]
 ```
 
 ```python
 {1: 2, "foo": "bar"}
+dict(fiz=2, foo="bar")
+d = {1: 2, "foo": "bar"}
+d[1]
+d[2]
+d.get(2)
+d.pop(2)
+d.pop(2, None)
+d.pop(1)
+d.pop(1)
+del d['foo']
 {1, 2, 3.1415}
+set((1, 2, 3.1415))
 ```
+
+```python
+range(0, 10)
+list(range(0, 10))
+list(range(0, 10, 3))
+```
+
+More: https://docs.python.org/3.5/library/stdtypes.html
 
 ## Comments
 
@@ -114,6 +156,30 @@ This is a multi-line comment - almost
 ```
 
 ## Ordered dicts, frozensets, named touple, counter
+
+`import collections`
+
+```python
+counter = collections.Counter()
+counter.update((1, 1, 1, 1))
+counter.update({1: 4})
+counter[1] = 0
+counter[42]
+```
+
+```python
+collections.OrderedDict
+```
+
+```python
+dd = collections.defaultdict(list)
+dd[1].append(5)
+```
+
+```python
+# from https://docs.python.org/3.5/library/collections.html#collections.namedtuple
+Point = collections.namedtuple('Point', ['x', 'y'])
+```
 
 ## Control structures
 
