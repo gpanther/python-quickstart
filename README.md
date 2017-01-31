@@ -391,23 +391,136 @@ print(test(1, 2, 3))
 
 ## Mocking
 
+```python
+import random
+
+
+def randomPlusOne():
+    return random.randint(0, 1000000) + 1
+```
+
+```python
+from unittest import mock
+
+import src
+
+
+@mock.patch('src.random')
+def testRandomPlusOne(random_mock):
+    random_mock.randint.return_value = 1
+    assert 2 == src.randomPlusOne()
+```
+
 ## Exceptions
+
+```python
+try:
+    ...
+except:
+    ...
+
+
+try:
+    ...
+except ValueError:
+    ...
+
+
+try:
+    ...
+except (ValueError, TypeError) as e:
+    ...
+
+
+try:
+    ...
+except ...:
+    ...
+finally:
+    ...
+    
+
+raise ExceptionClass()
+```
 
 ## Classes
 
-* Inheritance
-* Magic methods
+```python
+class Foo(object):
+    def  __init__(self, k):
+        self.__k = k
+
+    @classmethod
+    def cm(cls):
+        pass
+
+    @staticmethod
+    def sm():
+        pass
+
+
+class Bar(Foo):
+    def __init__(self, k, v):
+        super().__init__(k)
+        self.__v = v
+
+
+foo = Bar(1, 2)
+```
+
+* Magic methods: https://docs.python.org/3.5/reference/datamodel.html
 
 ## List/Dict/Set comprehensions
 
+```python
+[i**2 for i in range(0, 10) if i % 2 == 0]
+
+{i**2 for i in range(0, 10) if i % 2 == 0}
+
+{i: i**2 for i in range(0, 10) if i % 2 == 0}
+```
+
 ## Generators
+
+```python
+def gen():
+    for i in range(0, 100):
+        yield i
+
+
+print(sum(gen()))
+```
 
 * [Generator Tricks](http://www.dabeaz.com/generators/index.html)
 * [A Curious Course on Coroutines and Concurrency](http://dabeaz.com/coroutines/)
 
 ## Itertools and more itertools
 
+* [itertools](https://docs.python.org/3.5/library/itertools.html)
+* [more-itertools](https://pypi.python.org/pypi/more-itertools)
+
 ## Context managers
+
+```python
+with open(__file__, 'r') as f:
+    for l in f:
+        print(l)
+```
+
+```python
+import contextlib
+
+
+@contextlib.contextmanager
+def greet(name):
+    print('Hello %s' % name)
+    yield
+    print('Goodbye %s' % name)
+
+
+with greet('world'):
+    print(42)
+```
 
 ## Serialization
 
@@ -416,9 +529,24 @@ print(test(1, 2, 3))
 
 ## Static analyzers, coverage
 
+```bash
+pip install flake8
+pip install pylint
+flake8 test.py
+pylint test.py
+```
+
 ## Debugging
 
+* pdb / [pudb](https://pypi.python.org/pypi/pudb/)
+
 ## Logging
+
+```python
+import logging
+
+logging.error('Huston...')
+```
 
 ## WSGI, Flask
 
