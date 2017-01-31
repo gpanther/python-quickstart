@@ -73,6 +73,10 @@ htmlcov/
 ## Booleans, numbers, strings, lists, tuples, dicts, sets, range
 
 ```python
+None
+```
+
+```python
 True
 False
 ```
@@ -128,6 +132,12 @@ dict(fiz=2, foo="bar")
 d = {1: 2, "foo": "bar"}
 d[1]
 d[2]
+d.keys()
+d.values()
+d.items()
+1 in d
+2 not in d
+d.update({1: 2, 3: 5})
 d.get(2)
 d.pop(2)
 d.pop(2, None)
@@ -136,6 +146,8 @@ d.pop(1)
 del d['foo']
 {1, 2, 3.1415}
 set((1, 2, 3.1415))
+1 in {1, 2}
+{}
 ```
 
 ```python
@@ -183,9 +195,57 @@ Point = collections.namedtuple('Point', ['x', 'y'])
 
 ## Control structures
 
+```python
+if a:
+  pass
+elif b:
+  pass
+else:
+  pass
+```
+
+```python
+for i in {1: 2, 3: 4}: print(i)
+for i in {1: 2, 3: 4}.items(): print(i)
+for k, v in {1: 2, 3: 4}.items(): print(k + v)
+for k, v in {1: 2, 3: 4}.items(): print('%s -> %s' % (k, v))
+for k, _ in {1: 2, 3: 4}.items(): print(k)
+for _, _ in {1: 2, 3: 4}.items(): print("Hello")
+```
+
+```python
+while True:
+  break / continue
+```
+
+```python
+for i in (1, 2, 3):
+  if i == 2:
+    print("Found!")
+    break;
+else:
+  print("Not found!")
+```
+
+```python
+for i in enumerate((1, 2, 3)):
+  print(i)
+```
+
+https://docs.python.org/3.5/library/functions.html
+
 ## Modules
 
+```python
+dir/__init__.py
+import dir
+import dir.foo
+from dir import foo
+```
+
 ## Testing, TDD
+
+
 
 ## Function, decorators
 
