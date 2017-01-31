@@ -135,3 +135,10 @@ if __name__ == "__main__":
 * [Talk Python to Me](https://talkpython.fm/)
 * [Podcast.\_\_init\_\_](https://pythonpodcast.com/)
 * [Python Bytes](https://pythonbytes.fm/)
+
+## Other tidbits:
+
+* Python 3.5 type hints
+* Good editors: PyCharm, PyDev
+
+# Good luck!
