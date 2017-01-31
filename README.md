@@ -140,5 +140,9 @@ if __name__ == "__main__":
 
 * Python 3.5 type hints
 * Good editors: PyCharm, PyDev
+* [/r/Python](https://www.reddit.com/r/Python/) and [/r/PythonTips](https://www.reddit.com/r/pythontips/)
+* Code formatting guidelines (style guides):
+  * PEP8: https://www.python.org/dev/peps/pep-0008/
+  * Google Style Guide: https://google.github.io/styleguide/pyguide.html
 
 # Good luck!
