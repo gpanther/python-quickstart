@@ -245,14 +245,149 @@ from dir import foo
 
 ## Testing, TDD
 
+```python
+import unittest
 
+
+class TestTest(unittest.TestCase):
+    def testMe(self):
+        self.assertEqual(1, 2)
+
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+```bash
+python -m unittest discover tests
+python -m unittest test
+python -m unittest -f test
+```
+
+```bash
+pip install pytest
+```
+
+```python
+def testMe():
+    assert 1 == 2
+```
+
+```python
+def testMe():
+    assert 1 == 2
+```
+
+```python
+def inc(x):
+    return x + 1
+
+def testAnswer():
+    assert inc(3) == 5
+```
 
 ## Function, decorators
 
 * Named parameters
+
+```python
+def sum(a, b):
+    return a + b
+
+
+print(sum(b=1, a=2))
+```
+
 * "varargs"
+
+```python
+def dump(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+
+dump(1, 2, 3, 4, foo='bar')
+```
+
 * Closures
+
+```python
+def incrementFactory(w):
+    def inc(x):
+        return x + w
+    return inc
+
+
+inc = incrementFactory(5)
+print(inc(1))
+```
+
 * Lambdas / anonymous functions
+
+```python
+def incrementFactory(w):
+    return lambda x: x + w
+
+
+inc = incrementFactory(5)
+print(inc(1))
+```
+
+```python
+import functools
+
+
+def sum(a, b):
+    return a + b
+
+
+def incrementFactory(w):
+    return functools.partial(sum, w)
+
+inc = incrementFactory(5)
+print(inc(1))
+```
+* decorators
+
+```python
+def decorate(f):
+    def decorated(*args, **kwargs):
+        print('Before!')
+        f(*args, **kwargs)
+        print('After!')
+    return decorated
+
+
+@decorate
+def test(*args):
+    return sum(args)
+
+
+print(test(1, 2, 3))
+```
+
+```python
+import functools
+
+
+def decorate(f):
+    @functools.wraps(f)
+    def decorated(*args, **kwargs):
+        print('Before!')
+        try:
+            return f(*args, **kwargs)
+        finally:
+            print('After!')
+    return decorated
+
+
+@decorate
+def test(*args):
+    return sum(args)
+
+
+print(test(1, 2, 3))
+```
 
 ## Mocking
 
