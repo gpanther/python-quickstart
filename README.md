@@ -44,6 +44,21 @@ pip freeze > requirements_frozen.txt
 pip list --outdated --format=columns
 ```
 
+- [Default `.gitignore` for Python](https://github.com/github/gitignore/blob/master/Python.gitignore):
+
+```
+__pycache__/
+*.py[cod]
+...
+env/
+...
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+...
+```
+
 ## Numbers, strings, lists, tuples, dicts, sets
 
 ## Ordered dicts, frozensets, named touple, counter
