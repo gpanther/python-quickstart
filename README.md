@@ -347,10 +347,29 @@ def appendTo(a=[], b=[]):
     a += b
     return a
 
-print(foo(2))
-print(foo(b=4))
+print(appendTo(b=[1]))
+print(appendTo(b=[2]))
 ```
 
+```python
+# BETTER
+def appendTo(a=[], b=[]):
+    return a + b
+
+print(appendTo(b=[1]))
+print(appendTo(b=[2]))
+```
+
+```python
+# BESTEST
+def appendTo(a=None, b=None):
+    a = a or []
+    b = b or []
+    return a + b
+
+print(appendTo(b=[1]))
+print(appendTo(b=[2]))
+```
 
 * Closures
 
@@ -363,6 +382,34 @@ def incrementFactory(w):
 
 inc = incrementFactory(5)
 print(inc(1))
+```
+
+* side-effecting closures
+
+1. Don't do it
+2. See rule 1
+
+```python
+# !!! WON'T WORK !!!
+def foo():
+    called = False
+    def do():
+        called = True
+    do()
+    assert called
+
+foo()
+```
+
+```python
+def foo():
+    called = [False]
+    def do():
+        called[0] = True
+    do()
+    assert called[0]
+
+foo()
 ```
 
 * Lambdas / anonymous functions
@@ -390,6 +437,7 @@ def incrementFactory(w):
 inc = incrementFactory(5)
 print(inc(1))
 ```
+
 * decorators
 
 ```python
@@ -454,6 +502,8 @@ def testRandomPlusOne(random_mock):
     assert 2 == src.randomPlusOne()
 ```
 
+`mock.Mock` / `mock.MagicMock`
+
 ## Exceptions
 
 ```python
@@ -512,6 +562,32 @@ foo = Bar(1, 2)
 ```
 
 * Magic methods: https://docs.python.org/3.5/reference/datamodel.html
+* Meta classes
+
+## Scoping
+
+1. Only functions introduce new scope
+2. \*Weird exception for classes
+3. after the outermost scope the builtins are searched
+
+```python
+u = 1
+
+class Foo(object):
+    u = 2
+
+    class Bar(object):
+        u = 3
+
+        def do(self):
+            u = 4
+            print(u)
+
+Foo.Bar().do()
+```
+
+\* Using nested classes to hide abstract superclass from unittest
+\* The "Meta" class for Django
 
 ## List/Dict/Set comprehensions
 
@@ -572,16 +648,46 @@ with greet('world'):
 
 ## Static analyzers, coverage
 
+```python
+import random
+
+
+def randomPlusOne():
+    return random.randint(0, 1000000) + 1
+```
+
+```python
+import unittest
+from unittest import mock
+
+import src
+
+
+class TestTest(unittest.TestCase):
+    @mock.patch('src.random')
+    def testRandomPlusOne(self, random_mock):
+        random_mock.randint.return_value = 1
+        self.assertEqual(2, src.randomPlusOne())
+```
+
 ```bash
 pip install flake8
 pip install pylint
-flake8 test.py
-pylint test.py
+flake8 src.py
+pylint src.py
+```
+
+```bash
+coverage run --branch --module unittest test
+coverage report
 ```
 
 ## Debugging
 
 * pdb / [pudb](https://pypi.python.org/pypi/pudb/)
+* set_trace()
+* no cross-thread BPs
+* `python -m p[u]db`
 
 ## Logging
 
@@ -589,6 +695,11 @@ pylint test.py
 import logging
 
 logging.error('Huston...')
+
+try:
+    raise ValueError()
+except ValueError:
+    logging.exception('Error!')
 ```
 
 ## WSGI, Flask
@@ -633,6 +744,7 @@ if __name__ == "__main__":
 
 ## Other tidbits:
 
+* `getattr` / `hasattr` / `setattr`
 * [PyVideo.org](http://pyvideo.org/)
 * Python 3.5 type hints
 * Good editors: PyCharm, PyDev
