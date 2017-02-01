@@ -651,6 +651,12 @@ with greet('world'):
     print(42)
 ```
 
+```python
+with foo() as f_in, \
+      bar() as f_out:
+    ...
+```
+
 ## Serialization
 
 * JuJ: Just Use Json
