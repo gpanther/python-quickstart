@@ -219,6 +219,9 @@ if 1 < 3 <= 3:
 
 if all/any(...):
   ...
+
+if a is (not) b: # including strings
+  ...
 ```
 
 ```python
