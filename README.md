@@ -220,8 +220,13 @@ if 1 < 3 <= 3:
 if all/any(...):
   ...
 
-if a is (not) b: # including strings
+if a is (not) b:
   ...
+
+if a in (not) b: # including strings
+  ...
+
+a = 0 if True else False
 ```
 
 ```python
