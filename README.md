@@ -11,6 +11,7 @@ Premise: you know programming but know no (or only a little of) Python.
 - YMHH (You Might Have Heard):
   - whitespace sensitive
   - slow because of the GIL
+- Our friend <del>Google</del>[DuckDuckGo](https://duckduckgo.com/)
 
 ## Virtual environments, packages
 
@@ -24,7 +25,9 @@ source env/bin/activate
 ./env/bin/pip
 ```
 
-`print("Hello world!")`
+`import this`
+
+`print("Hello World")`
 
 Packages are pulled from [PyPi](https://pypi.python.org/pypi/pudb) (not to be confused with [PyPy](http://pypy.org/) an alternative to CPython)
 
