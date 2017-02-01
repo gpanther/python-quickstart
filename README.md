@@ -74,6 +74,11 @@ htmlcov/
 
 ```python
 None
+
+def noReturn():
+  pass
+
+print(noReturn())
 ```
 
 ```python
@@ -248,6 +253,16 @@ import dir.foo
 from dir import foo
 ```
 
+```python
+import sys
+sys.path
+```
+
+```python
+import foo
+foo.__file__
+```
+
 ## Testing, TDD
 
 ```python
@@ -313,6 +328,29 @@ def dump(*args, **kwargs):
 
 dump(1, 2, 3, 4, foo='bar')
 ```
+
+* default parameters
+
+```python
+def foo(a=1, b=2):
+    return a+b
+
+print(foo(2))
+print(foo(b=4))
+```
+
+**Don't use mutable default parameters - they are evaluated only once per module loading**
+
+```python
+# !!! WRONG !!!
+def appendTo(a=[], b=[]):
+    a += b
+    return a
+
+print(foo(2))
+print(foo(b=4))
+```
+
 
 * Closures
 
