@@ -216,6 +216,9 @@ else:
 
 if 1 < 3 <= 3:
   pass
+
+if all/any(...):
+  ...
 ```
 
 ```python
@@ -749,6 +752,8 @@ if __name__ == "__main__":
 ## Other tidbits:
 
 * `getattr` / `hasattr` / `setattr`
+* `min` / `max`
+* `sort` / `sorted` / `reverse`
 * [PyVideo.org](http://pyvideo.org/)
 * Python 3.5 type hints
 * Good editors: PyCharm, PyDev
