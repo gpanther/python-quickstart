@@ -566,7 +566,10 @@ class Bar(Foo, Fizz):
 bar = Bar()
 bar.foo(1)
 bar.bar()
+print(Bar.__mro__)
 ```
+
+See: https://en.wikipedia.org/wiki/C3_linearization
 
 ```python
 class Foo(object):
@@ -631,6 +634,46 @@ f2 = Foo()
 
 assert f1.a1 is f2.a1
 assert f1.a2 is not f2.a2
+```
+
+```python
+class Foo(object):
+    def iMethod(self):
+        print(1)
+
+    @staticmethod
+    def sMethod():
+        print(2)
+
+    @classmethod
+    def cMethod(cls):
+        print(cls)
+
+
+class Bar(Foo):
+    def iMethod(self):
+        super().iMethod()
+
+    @staticmethod
+    def sMethod():
+        Foo.sMethod()
+
+    @classmethod
+    def cMethod(cls):
+        super().cMethod()
+
+
+b = Bar()
+# b.iMethod()
+# b.sMethod()
+# b.cMethod()
+
+# Bar.sMethod()
+# Foo.sMethod()
+# Bar.cMethod()
+# Foo.cMethod()
+
+# Foo.iMethod(None)
 ```
 
 * Magic methods: https://docs.python.org/3.5/reference/datamodel.html
