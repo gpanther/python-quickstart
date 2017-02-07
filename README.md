@@ -11,7 +11,7 @@ Premise: you know programming but know no (or only a little of) Python.
 - YMHH (You Might Have Heard):
   - whitespace sensitive
   - slow because of the GIL
-- Our friend <del>Google</del>[DuckDuckGo](https://duckduckgo.com/)
+- Our friend <del>Google</del> [DuckDuckGo](https://duckduckgo.com/)
 
 ## Virtual environments, packages
 
@@ -288,6 +288,19 @@ class TestTest(unittest.TestCase):
     def testMe(self):
         self.assertEqual(1, 2)
 
+# assertRaises
+# assertRaisesRegex
+# assertLogs
+# assertIs
+# assertIsNot
+# assertIsNone
+# assertIsNotNone
+# assertIn
+# assertNotIn
+# assertIsInstance
+# assertNotIsInstance
+
+# self.maxDiff = None
 
 if __name__ == '__main__':
     unittest.main()
@@ -495,30 +508,6 @@ def test(*args):
 print(test(1, 2, 3))
 ```
 
-## Mocking
-
-```python
-import random
-
-
-def randomPlusOne():
-    return random.randint(0, 1000000) + 1
-```
-
-```python
-from unittest import mock
-
-import src
-
-
-@mock.patch('src.random')
-def testRandomPlusOne(random_mock):
-    random_mock.randint.return_value = 1
-    assert 2 == src.randomPlusOne()
-```
-
-`mock.Mock` / `mock.MagicMock`
-
 ## Exceptions
 
 ```python
@@ -553,27 +542,95 @@ raise ExceptionClass()
 
 ## Classes
 
+* Don't overuse them
+
 ```python
 class Foo(object):
-    def  __init__(self, k):
-        self.__k = k
+    def foo(self):
+        print(1)
 
-    @classmethod
-    def cm(cls):
-        pass
 
-    @staticmethod
-    def sm():
-        pass
+def Fizz(object):
+    def foo(self):
+        print(2)
+
+    def bar(self):
+        print(3)
+
+
+class Bar(Foo, Fizz):
+    def foo(self, param):
+        super().foo()
+        print(4)
+
+bar = Bar()
+bar.foo(1)
+bar.bar()
+```
+
+```python
+class Foo(object):
+    def __init__(self, a, b):
+        self._a = a
+        self.__b = b
 
 
 class Bar(Foo):
-    def __init__(self, k, v):
-        super().__init__(k)
-        self.__v = v
+    def __init__(self, a):
+        self.__b = a
+        super().__init__(a, a)
 
 
-foo = Bar(1, 2)
+b = Bar(2)
+print(b.__dict__)
+```
+
+```python
+class Foo(object):
+    def do(self):
+        print(self.PARAM)
+
+
+class Bar(Foo):
+    PARAM = 5
+
+
+Bar().do()
+```
+
+```python
+class Foo(object):
+    def __init__(self, a):
+        self.dodo()
+        self.a = a
+
+
+class Bar(Foo):
+    def dodo(self):
+        print(self.a)
+
+
+Bar(1)
+```
+
+```python
+def getValue():
+    print('Getting value')
+    return []
+
+
+class Foo(object):
+    a1 = getValue()
+
+    def __init__(self):
+        self.a2 = getValue()
+
+
+f1 = Foo()
+f2 = Foo()
+
+assert f1.a1 is f2.a1
+assert f1.a2 is not f2.a2
 ```
 
 * Magic methods: https://docs.python.org/3.5/reference/datamodel.html
@@ -603,6 +660,30 @@ Foo.Bar().do()
 
 \* Using nested classes to hide abstract superclass from unittest
 \* The "Meta" class for Django
+
+## Mocking
+
+```python
+import random
+
+
+def randomPlusOne():
+    return random.randint(0, 1000000) + 1
+```
+
+```python
+from unittest import mock
+
+import src
+
+
+@mock.patch('src.random')
+def testRandomPlusOne(random_mock):
+    random_mock.randint.return_value = 1
+    assert 2 == src.randomPlusOne()
+```
+
+`mock.Mock` / `mock.MagicMock`
 
 ## List/Dict/Set comprehensions
 
