@@ -168,6 +168,11 @@ list(range(0, 10, 3))
 
 More: https://docs.python.org/3.5/library/stdtypes.html
 
+```
+(1, 2) < (1, 2, 3)
+sorted((dict(a=1, b=2), dict(a=2, b=3)), key=lambda e: (e['a'], e['b']))
+```
+
 ## Comments
 
 ```python
