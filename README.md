@@ -681,8 +681,48 @@ b = Bar()
 # Foo.iMethod(None)
 ```
 
+```python
+class AttrDict(object):
+    def __init__(self, **kwargs):
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+
+
+d = AttrDict(a=1, b=2)
+print(d.a)
+```
+
+```python
+class AttrDict(dict):
+    __getattribute__ = dict.__getitem__
+
+
+d = AttrDict(a=1, b=2)
+print(d.a)
+```
+
+```python
+class Klazz(object):
+    def __call__(self, *args):
+        return args
+
+
+def fun(*args):
+    return args
+
+
+bubu = Klazz()
+print(bubu(1, 2, 3))
+
+bubu = fun
+print(bubu(1, 2, 3))
+```
+
 * Magic methods: https://docs.python.org/3.5/reference/datamodel.html
 * Meta classes
+* From [Episode 12 of PythonBytes](https://pythonbytes.fm/episodes/show/12/expanding-your-python-mental-model-and-serving-millions-of-requests-per-second-with-python):
+  * http://powerfulpython.com/blog/python-functions-arent-what-you-think/
+  * http://nbviewer.jupyter.org/github/akittas/presentations/blob/master/pythess/tao_mro/tao_of_python.ipynb
 
 ## Scoping
 
