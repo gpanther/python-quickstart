@@ -283,6 +283,21 @@ import foo
 foo.__file__
 ```
 
+```python
+# config_local.py - added to .gitignore
+CONFIG1 = 5
+
+# config.py
+from config_local import *
+
+CONFIG1
+
+# server.py
+import config
+
+print(config.CONFIG1)
+```
+
 ## Testing, TDD
 
 ```python
@@ -925,6 +940,7 @@ if __name__ == "__main__":
 * cProfile
 * [objgraph](https://pypi.python.org/pypi/objgraph)
 * ...
+* from [Episode 96 of Talk Python to Me](https://talkpython.fm/episodes/show/96/exploring-awesome-python): https://github.com/vinta/awesome-python
 
 ## Podcasts
 
