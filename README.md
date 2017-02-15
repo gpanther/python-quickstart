@@ -733,6 +733,28 @@ bubu = fun
 print(bubu(1, 2, 3))
 ```
 
+```
+class Props(objects):
+    x = property(getx, setx, delx, "I'm the 'x' property.")
+
+class Props(objects):
+    def __init__(self):
+        self._x = None
+
+    @property
+    def x(self):
+        """I'm the 'x' property."""
+        return self._x
+
+    @x.setter
+    def x(self, value): # <-- duplicate names ???
+        self._x = value
+
+    @x.deleter
+    def x(self):
+        del self._x
+```
+
 * Magic methods: https://docs.python.org/3.5/reference/datamodel.html
 * Meta classes
 * From [Episode 12 of PythonBytes](https://pythonbytes.fm/episodes/show/12/expanding-your-python-mental-model-and-serving-millions-of-requests-per-second-with-python):
