@@ -921,7 +921,7 @@ coverage report
 ```python
 import logging
 
-logging.error('Huston...')
+logging.error('Huston: %s', 'We have a problem')
 
 try:
     raise ValueError()
