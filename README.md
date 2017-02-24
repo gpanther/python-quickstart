@@ -298,6 +298,33 @@ import config
 print(config.CONFIG1)
 ```
 
+**!!!** Modules with the same name on the import path are not merged
+
+Circular imports:
+
+```python
+# fizz.py
+import buzz
+
+def doFizz():
+  pass
+
+# buzz.py
+import fizz
+
+fizz.doFizz()
+
+def doBuzz():
+  pass
+
+# somewhere else
+import fizz, buzz
+# or
+import buzz, fizz
+```
+
+* Also: zipimport
+
 ## Testing, TDD
 
 ```python
