@@ -73,6 +73,8 @@ htmlcov/
   * Install from package manager and _afterwards_ do `pyvenv --system-site-packages env`
   * Have a complete build-chain ready (`build-essential`, `python3-dev`, `libpq-dev`, ...)
 
+* [pipdeptree](https://pypi.python.org/pypi/pipdeptree)
+
 ## Booleans, numbers, strings, lists, tuples, dicts, sets, range
 
 ```python
