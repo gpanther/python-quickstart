@@ -1011,7 +1011,7 @@ if __name__ == "__main__":
 * Code formatting guidelines (style guides):
   * PEP8: https://www.python.org/dev/peps/pep-0008/
   * Google Style Guide: https://google.github.io/styleguide/pyguide.html
-* `from __future__ import ...` - see the [\__future\__ module](https://docs.python.org/3.6/library/__future__.html)
+* `from __future__ import ...` - see the [\_\_future\_\_ module](https://docs.python.org/3.6/library/__future__.html)
 * `# -*- coding: <encoding-name> -*-`
 * Other alternative Python runtimes: Jypton, IronPython
 
